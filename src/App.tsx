@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Confirm from "./Confirm"
 
 class App extends Component {
   public render() {
@@ -20,6 +21,7 @@ class App extends Component {
             Learn React and TypeScript
           </a>
         </header>
+        <Confirm />
       </div>
     );
   }

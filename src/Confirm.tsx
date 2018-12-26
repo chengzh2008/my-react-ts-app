@@ -11,43 +11,56 @@ interface IProps {
     onCancelClick: () => void;
 }
 
-class Confirm extends React.Component<IProps> {
-    public static defaultProps = {
-        cancelCaption: "Cancel",
-        okCaption: "Okay"
-    }
-    public render() {
+const Confirm: React.SFC<IProps> = (props) => {
+
+    console.log("Confirm rendering. XXXXXX");
+    const [cancelClickCount,setCancelClickCount] = React.useState(0);
+
+    React.useEffect(() => {
+        console.log("Confirm first rendering");
+        return () => {
+            console.log("Confirm unmounted")
+        }
+    }, [props.open]);
+
+    const handleOkClick = () => {
+        props.onOkClick();
+    };
+
+    const handleCancelClick = () => {
+        setCancelClickCount(cancelClickCount + 1);
+        if (cancelClickCount >= 2) {
+            props.onCancelClick();
+        }
+    };
         return (
             <div className={
-                this.props.open ? "confirm-wrapper confirm-visible"
+                props.open ? "confirm-wrapper confirm-visible"
                 : "confirm-wrapper"}>
                 <div className="confirm-container">
                     <div className="confirm-title-container">
-                        <span>{this.props.title}</span>
+                        <span>{props.title}</span>
                     </div>
                     <div className="confirm-content-container">
-                        <p>{this.props.content}</p>
+                        <p>{props.content}</p>
                     </div>
                     <div className="confirm-buttons-container">
                         <button 
-                            onClick={this.handleCancelClick}
-                            className="confirm-cancel">{this.props.cancelCaption}</button>
+                            onClick={handleCancelClick}
+                            className="confirm-cancel">{cancelClickCount === 0 ? props.cancelCaption : "Really"}</button>
                         <button 
-                            onClick={this.handleOkClick}
-                            className="confirm-ok">{this.props.okCaption}</button>
+                            onClick={handleOkClick}
+                            className="confirm-ok">{props.okCaption}</button>
                     </div>
                 </div>
             </div>
         );
-    }
-
-    private handleOkClick = () => {
-        this.props.onOkClick();
-    };
-
-    private handleCancelClick = () => {
-        this.props.onCancelClick();
-    };
 }
 
-export default Confirm;
+Confirm.defaultProps = {
+    cancelCaption: "Cancel",
+    okCaption: "Okay"
+}
+
+const ConfirmMemo = React.memo(Confirm);
+export default ConfirmMemo;

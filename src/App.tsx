@@ -57,8 +57,8 @@ class App extends Component<{}, IState> {
             Confirm
           </button>
         )}
-          
-        <Confirm 
+        {this.state.countDown > 0 && (
+          <Confirm 
           open={this.state.confirmOpen}
           title="React and TypeScript"
           content="Are your sure you want to learn React and TypeScript?"
@@ -67,6 +67,8 @@ class App extends Component<{}, IState> {
           onOkClick={this.handleOkConfirmClick}
           okCaption="Yes please!"
         />
+        )}
+        
       </div>
     );
   }

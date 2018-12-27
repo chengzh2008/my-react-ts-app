@@ -3,6 +3,11 @@
   padding: 20px;
   font-size: large;
  }
+
+ .search-container {
+   text-align: right;
+   margin-bottom: -25px;
+ }
  
  .product-list {
   list-style: none;

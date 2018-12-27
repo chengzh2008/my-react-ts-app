@@ -9,7 +9,7 @@ import NotFoundPage from "./NotFoundPage";
 import LoginPage from "./LoginPage";
 
 const Routes: React.SFC = () => {
-    const [loggedIn, setLoggedIn] = React.useState(false);
+    const [loggedIn, setLoggedIn] = React.useState(true);
     return (
         <Router>
             <div>

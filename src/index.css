@@ -83,3 +83,15 @@
 .admin-link-active {
   border-bottom: #6f6e6e solid 2px;
 }
+
+.animate-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.animate-enter-active {
+  opacity: 1;
+  transition: opacity 450ms ease-in;
+}
+.animate-exit {
+  display: none;
+}

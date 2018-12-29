@@ -1,10 +1,7 @@
 import * as React from "react";
 import ContactUs from "./ContactUs";
 import { IValues, ISubmitResult } from "./Form";
-
-const wait = (ms: number): Promise<void> => {
-  return new Promise(resolve => setTimeout(resolve, ms));
- };
+import { wait } from "./Utils"
 
 class ContactUsPage extends React.Component {
 

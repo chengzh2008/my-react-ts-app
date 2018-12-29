@@ -1,3 +1,5 @@
+import { wait } from "./Utils";
+
 export interface IProduct {
   id: number;
   name: string;
@@ -10,6 +12,7 @@ export interface IReview {
   comment: string;
   reviewer: string;
 }
+
 
 export const products: IProduct[] = [
   {
@@ -59,3 +62,9 @@ export const products: IProduct[] = [
     ]
   }
 ];
+
+export const getProducts = async (): Promise<IProduct[]> => {
+  await wait(1000);
+  return products;
+}
+

@@ -63,8 +63,12 @@ export const products: IProduct[] = [
   }
 ];
 
+export const getProduct = async (id: number): Promise<IProduct | null> => {
+  await wait(1000);
+  const foundProducts = products.filter(product => product.id === id);
+  return foundProducts.length ? foundProducts[0] : null;
+}
 export const getProducts = async (): Promise<IProduct[]> => {
   await wait(1000);
   return products;
 }
-

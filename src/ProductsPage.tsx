@@ -1,10 +1,11 @@
 import * as React from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { IProduct } from "./ProductsData";
 import { IApplicationState } from "./Store";
 import { getProducts } from "./ProductsData";
+import ProductsList from "./ProductsList";
 
 interface IProps extends RouteComponentProps {
     getProducts: typeof getProducts;
@@ -26,25 +27,10 @@ class ProductsPage extends React.Component<IProps> {
         <p>
           Welcome to React Shop where you can get all your tools for ReactJS!
         </p>
-        <ul className="product-list">
-          {this.props.products.map(product => {
-            if (
-              !search ||
-              (search &&
-                product.name
-                  .toLocaleLowerCase()
-                  .indexOf(search.toLocaleLowerCase()) > -1)
-            ) {
-              return (
-                <li key={product.id} className="product-list-item">
-                  <Link to={`/products/${product.id}`}>{product.name}</Link>
-                </li>
-              );
-            } else {
-              return null;
-            }
-          })}
-        </ul>
+        <ProductsList
+            search={search}
+            products={this.props.products}
+            loading={this.props.loading} />
       </div>
     );
   }

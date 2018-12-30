@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { IProduct } from "./ProductsData";
 import { IApplicationState } from "./Store";
-import { getProducts } from "./ProductsData";
+import { getProducts } from "./ProductsActions";
 import ProductsList from "./ProductsList";
 
 interface IProps extends RouteComponentProps {

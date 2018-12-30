@@ -2,7 +2,8 @@ import {IProduct} from "./ProductsData";
 
 export enum ProductsActionTypes {
   GETALL = "PRODUCTS/GETALL",
-  LOADING = "PRODUCTS/LOADING"
+  LOADING = "PRODUCTS/LOADING",
+  GETSINGLE = "PRODUCTS/GETSINGLE"
 }
 
 export interface IProductsGetAllAction {
@@ -14,11 +15,18 @@ export interface IProductsLoadingAction {
   type: ProductsActionTypes.LOADING
 }
 
+export interface IProductsGetSingleAction {
+  type: ProductsActionTypes.GETSINGLE;
+  product: IProduct;
+}
+
 export type ProductsActions = 
   | IProductsGetAllAction
+  | IProductsGetSingleAction
   | IProductsLoadingAction
 
 export interface IProductsState {
   readonly products: IProduct[];
   readonly productsLoading: boolean;
+  readonly currentProduct: IProduct | null;
 }

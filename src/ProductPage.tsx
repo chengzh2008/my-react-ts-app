@@ -9,7 +9,7 @@ import { IApplicationState } from "./Store";
 import { addToBasket } from "./BasketActions";
 
 interface IProps extends RouteComponentProps<{ id: string }> {
-  addTobBasket: typeof addToBasket;
+  addToBasket: typeof addToBasket;
   getProduct: typeof getProduct;
   loading: boolean;
   product?: IProduct;
@@ -48,7 +48,7 @@ class ProductPage extends React.Component<IProps> {
 
   private handleAddClick = () => {
     if (this.props.product) {
-      this.props.addTobBasket(this.props.product);
+      this.props.addToBasket(this.props.product);
     }
   };
 }

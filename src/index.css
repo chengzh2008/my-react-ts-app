@@ -2,28 +2,28 @@
   text-align: center;
   padding: 20px;
   font-size: large;
- }
+}
 
- .search-container {
-   text-align: right;
-   margin-bottom: -25px;
- }
- 
- .product-list {
+.search-container {
+  text-align: right;
+  margin-bottom: -25px;
+}
+
+.product-list {
   list-style: none;
   margin: 0;
   padding: 0;
- }
- 
- .product-list-item {
-  padding: 5px;
- }
+}
 
- .product-list-item a {
+.product-list-item {
+  padding: 5px;
+}
+
+.product-list-item a {
   text-decoration: none;
 }
 
- .header {
+.header {
   text-align: center;
   background-color: #222;
   height: 160px;
@@ -168,7 +168,9 @@
   margin-bottom: 3px;
 }
 
-.form-group input, select, textarea {
+.form-group input,
+select,
+textarea {
   font-family: Arial;
   font-size: 16px;
   padding: 5px;
@@ -195,4 +197,11 @@
   border: gray solid 1px;
   background-color: gray;
   cursor: not-allowed;
+}
+
+.basket-summary {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: white solid 2px;
 }

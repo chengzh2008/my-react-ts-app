@@ -1,10 +1,16 @@
 import * as React from "react";
 import { NavLink, RouteComponentProps, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { IApplicationState } from "./Store";
 
 import logo from "./logo.svg";
-import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from "constants";
+import BasketSummary from "./BasketSummary";
 
-const Header: React.SFC<RouteComponentProps> = props => {
+interface IProps extends RouteComponentProps {
+  basketCount: number;
+}
+
+const Header: React.SFC<IProps> = props => {
   const [search, setSearch] = React.useState("");
   React.useEffect(() => {
     const searchParams = new URLSearchParams(props.location.search);
@@ -32,6 +38,7 @@ const Header: React.SFC<RouteComponentProps> = props => {
           onChange={handleSearchChange}
           onKeyDown={handleSearchKeyDown}
         />
+        <BasketSummary count={props.basketCount} />
       </div>
       <img src={logo} className="header-logo" alt="logo" />
       <h1 className="header-title">React Shop</h1>
@@ -62,4 +69,10 @@ const Header: React.SFC<RouteComponentProps> = props => {
   );
 };
 
-export default withRouter(Header);
+const mapStateToProps = (store: IApplicationState) => {
+  return {
+    basketCount: store.basket.products.length
+  }
+}
+
+export default connect(mapStateToProps)(withRouter(Header));

@@ -20,4 +20,6 @@ const Root: React.SFC<IProps> = props => {
   );
 };
 
-ReactDOM.render(<Root store={store} />, document.getElementById("root") as HTMLElement);
+ReactDOM.render(<Root store={store} />, document.getElementById(
+  "root"
+) as HTMLElement);

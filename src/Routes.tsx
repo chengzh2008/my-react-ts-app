@@ -22,6 +22,7 @@ import NotFoundPage from "./NotFoundPage";
 import LoginPage from "./LoginPage";
 import ContactUsPage from "./ContactUsPage";
 import APIDemo from "./APIDemo";
+import GraphQLDemo from "./GraphQLDemo";
 
 const AdminPage = React.lazy(() => import("./AdminPage"));
 
@@ -62,6 +63,7 @@ const Routes: React.SFC<RouteComponentProps> = props => {
             </Route>
             <Route path="/login" component={LoginPage} />
             <Route path="/apidemo" component={APIDemo} />
+            <Route path="/graphqldemo" component={GraphQLDemo} />
             <Route component={NotFoundPage} />
           </Switch>
         </CSSTransition>

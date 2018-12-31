@@ -12,6 +12,7 @@
 /build
 
 # misc
+graphdemotoken.ts
 .DS_Store
 .env.local
 .env.development.local
